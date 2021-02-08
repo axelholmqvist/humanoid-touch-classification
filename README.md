@@ -51,6 +51,9 @@ The machine learning is based upon Support Vector-Machine and has an SVC with:
 - Balanced wights
 
 ## Parts of system explained
+### First of all...
+...I just want to say that the code is not very neat written, but it does its job. The focus of this project has **not** been on the code.
+
 ### "Global parameters"
 `N_SAMPLES` indicates the amount of samples used in order to represent a touch. Value used was 100.  
 `N_ELECTRODES` indicates the amount of areas used in each sample. Value used was 12.  
@@ -93,14 +96,14 @@ For example, `print_epi(f)` prints the facial expression of Epi depending on inp
 Note: Modify the `N_SAMPLES` and `N_ELECTRODES` if needed.
 
 ### train.py
-The script that handles the machine learning and training of the SVC, i.e. the model used for prediction. The ouput is the created model in `.pkl` format. Printed outputs are average accuracy of the model using the test set, as well as with lowest accuracy together with its confusion matrix (to be able to quickly spot "classifying issues").
+The script that handles the machine learning and training of the SVC, i.e. the model used for prediction. The ouput is the created model in `.pkl` format. Printed outputs are average accuracy of the model (from validation with the test set), as well as lowest accuracy together with its confusion matrix (to be able to quickly spot "classifying issues").
 
 1. Set the `TEST_SIZE` to the desired size of the data set used for validation, and the `N_EOPCHS` to the desired number of epochs used in training.
 2. Uncomment the `print()` call on `row 43` in order to print the `x_mean` and `sigma` that are needed in **prediction.py**.
 3. Set input files of desired data set on `row 113`.
 4. Simply run `train.py` to start training (and `ctrl + C` to abort it).
 
-Note: Change `row 98` in order to output the model in another way/format than a `.pkl`.
+Note: Change `row 98` in order to output the model in another way/format than a `.pkl`.  
 Note: Modify the `N_SAMPLES` and `N_ELECTRODES` if needed.
 
 ### visualizer.py
@@ -109,5 +112,5 @@ ___
 ### EPI_touch_analog_100
 Contains the C++ script that should be uploaded on the Bare Conductive Touch Board in order to detect and sample touches from the hardware. The script begins a serial to the USB port used, and sends 12 values delimited by `,` for every sample (after a touch has been detected). The values normally range between 5-300 (where 0-5 is set as 0) and should be seen as a delta in capacitance (baseline data subtracted by filtered data). Baseline data is set at start and can differ, meaning that the environment should not have an impact.
 
-Note: Modify the `FILL_THRESHOLD` in order to tweak the amount of empty samples needed before "ending" a touch and filling the rest (of the time window) with zeros.
+Note: Modify the `FILL_THRESHOLD` in order to tweak the amount of empty samples needed before "ending" a touch and filling the rest (of the time window) with zeros.  
 Note: Change the `delay()`on `row 114` in order to tweak the sample frequency.
