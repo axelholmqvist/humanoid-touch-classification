@@ -7,19 +7,19 @@ Supplementary code for the prototype created in "A system for Bidirectional Touc
 A project has been carried out with the purpose of constructing a somatosensory system for a humanoid robot, including the identification of different types of touch and a related response. The detection of touch on an Epi humanoid robot head is made from conductive paint on the inside on the head shell, the electrical signal produced is processed into a digital representation of touch, a classification of touch is made through the use of machine learning, and a representation of related emotions is presented as a response. A model of 11 different touch types was created and applied in the identification of touch of the somatosensory system. Enabling the system to include multiple types of touch, the resolution of touch representation was modified through the use of a continuous signal of high frequency, and Support-Vector Machine machine learning was applied to provide a sufficient certainty of prediction and learning with a validation accuracy of 89%. The system could thereby detect and identify 11 different types of touch and produce a related response, enabling the bi-directional touch-emotion interaction with a humanoid robot.
 ___
 Touches learned by the model:
-| Touches       |
-| ------------- |
-| Hold          |
-| Rub           |
-| Pat           |
-| Pick          |
-| Poke          |
-| Press         |
-| Scratch       |
-| Slap          |
-| Stroke        |
-| Tap           |
-| Tickle        |
+| Touches       | Represented as  |
+| ------------- | --------------- |
+| Hold          | 0               |
+| Rub           | 1               |
+| Pat           | 2               |
+| Pick          | 3               |
+| Poke          | 4               |
+| Press         | 5               |
+| Scratch       | 6               |
+| Slap          | 7               |
+| Stroke        | 8               |
+| Tap           | 9               |
+| Tickle        | 10              |
 
 Emotions mapped to touches:
 | Emotions      |
